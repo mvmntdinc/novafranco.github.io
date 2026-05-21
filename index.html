@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Franco Precatórios – Seu precatório vira dinheiro rápido</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --gold: #c8882a;
+    --gold-light: #e9a94a;
+    --cream: #f9f6f0;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f3f4f6;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(13,31,60,0.08);
+    box-shadow: 0 2px 20px rgba(13,31,60,0.06);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .logo-text strong {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+  }
+
+  .logo-text span {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .header-cta {
+    background: var(--gold);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .header-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 120px 40px 60px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-text { position: relative; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(200,136,42,0.12);
+    border: 1px solid rgba(200,136,42,0.3);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+    position: relative;
+  }
+
+  .hero h1 em::after {
+    content: '';
+    position: absolute;
+    bottom: 2px; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+    opacity: 0.3;
+    border-radius: 2px;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .hero-sub strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .trust-item strong {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .trust-item span {
+    font-size: 12px;
+    color: var(--gray);
+    font-weight: 500;
+  }
+
+  /* ── FORM ── */
+  .form-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 44px 40px;
+    box-shadow: 0 24px 80px rgba(13,31,60,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--navy), var(--gold));
+  }
+
+  .form-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .form-card p {
+    font-size: 14px;
+    color: var(--gray);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--navy);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(200,136,42,0.12);
+    background: var(--white);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: var(--gold);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200,136,42,0.3);
+  }
+
+  .btn-submit:active { transform: translateY(0); }
+
+  .form-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+
+  /* ── BENEFITS BAR ── */
+  .benefits {
+    background: var(--navy);
+    padding: 60px 40px;
+  }
+
+  .benefits-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .benefit-item {
+    text-align: center;
+    color: var(--white);
+  }
+
+  .benefit-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(200,136,42,0.15);
+    border: 1px solid rgba(200,136,42,0.3);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    font-size: 22px;
+  }
+
+  .benefit-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .benefit-item p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps {
+    padding: 90px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .section-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 60px;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 32px;
+    left: calc(16.66% + 16px);
+    right: calc(16.66% + 16px);
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold) 0%, transparent 50%, var(--gold) 100%);
+    opacity: 0.3;
+  }
+
+  .step {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid rgba(13,31,60,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(13,31,60,0.1);
+  }
+
+  .step-num {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--navy), #1e3a5f);
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--navy);
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 32px 40px;
+    font-size: 13px;
+  }
+
+  footer strong { color: rgba(255,255,255,0.8); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text { animation: fadeUp 0.7s ease both; }
+  .form-card { animation: fadeUp 0.7s 0.15s ease both; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    header { padding: 16px 20px; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 50px;
+      gap: 36px;
+    }
+
+    .trust-row { gap: 20px; }
+
+    .form-card { padding: 28px 22px; }
+
+    .form-row { grid-template-columns: 1fr; }
+
+    .benefits { padding: 50px 20px; }
+
+    .benefits-inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .steps { padding: 60px 20px; }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-grid::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">
+    <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="4,28 18,6 32,28" fill="none" stroke="#0d1f3c" stroke-width="3"/>
+      <polygon points="10,28 18,14 26,28" fill="#c8882a" opacity="0.7"/>
+    </svg>
+    <div class="logo-text">
+      <strong>NOVAFRANCO</strong>
+      <span>Precatórios</span>
+    </div>
+  </a>
+  <a class="header-cta" href="#form">Solicitar análise grátis →</a>
+</header>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+
+    <!-- LEFT: texto -->
+    <div class="hero-text">
+      <div class="badge">Análise gratuita em 24h</div>
+      <h1>Seu precatório vira<br><em>dinheiro rápido</em></h1>
+      <p class="hero-sub">
+        Avaliamos seu precatório sem custo e apresentamos uma
+        <strong>proposta personalizada em até 24 horas.</strong>
+        Sem burocracia, sem complicação.
+      </p>
+
+      <div class="trust-row">
+        <div class="trust-item">
+          <strong>+500</strong>
+          <span>Clientes atendidos</span>
+        </div>
+        <div class="trust-item">
+          <strong>24h</strong>
+          <span>Para sua proposta</span>
+        </div>
+        <div class="trust-item">
+          <strong>100%</strong>
+          <span>Grátis a análise</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: formulário -->
+    <div class="form-card" id="form">
+      <h2>Receba sua proposta</h2>
+      <p>Preencha e entraremos em contato em até 24 horas.</p>
+
+      <form action="#" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" name="nome" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label>Telefone / WhatsApp</label>
+            <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" name="email" placeholder="seu@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Tipo de precatório</label>
+          <select name="tipo">
+            <option value="">Selecione...</option>
+            <option>Federal</option>
+            <option>Estadual</option>
+            <option>Municipal</option>
+            <option>Não sei</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Valor estimado</label>
+          <select name="valor">
+            <option value="">Selecione uma faixa...</option>
+            <option>Até R$ 50 mil</option>
+            <option>R$ 50 mil – R$ 200 mil</option>
+            <option>R$ 200 mil – R$ 500 mil</option>
+            <option>Acima de R$ 500 mil</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          Quero minha proposta gratuita →
+        </button>
+      </form>
+
+      <p class="form-note">🔒 Seus dados estão seguros. Sem spam.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="benefits-inner">
+    <div class="benefit-item">
+      <div class="benefit-icon">⚡</div>
+      <h3>Rapidez</h3>
+      <p>Proposta em até 24 horas após o envio das informações.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🔒</div>
+      <h3>Segurança</h3>
+      <p>Processo 100% transparente e seguro juridicamente.</p>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">💰</div>
+      <h3>Melhor valor</h3>
+      <p>Oferecemos as melhores condições do mercado para seu precatório.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <p class="section-label">Como funciona</p>
+  <h2 class="section-title">Simples assim</h2>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Você preenche</h3>
+      <p>Envie seus dados e as informações do precatório pelo formulário.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>A gente analisa</h3>
+      <p>Nossa equipe avalia o seu precatório em até 24 horas, gratuitamente.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Você recebe</h3>
+      <p>Apresentamos uma proposta personalizada. Sem compromisso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 <strong>Nova Franco Precatórios</strong>. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>
