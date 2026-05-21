@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nova Franco Precatórios – Seu precatório vira dinheiro rápido</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager (substitua GTM-XXXXXX pelo seu ID) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+<!-- End Google Tag Manager -->
 <style>
   :root {
     --navy: #0d1f3c;
@@ -548,7 +556,7 @@
       <h2>Receba sua proposta</h2>
       <p>Preencha e entraremos em contato em até 24 horas.</p>
 
-      <form action="#" method="POST">
+      <form action="https://formspree.io/f/SEU_ID_FORMSPREE" method="POST" onsubmit="gtag('event', 'form_submit', {'value': 100})">
         <div class="form-row">
           <div class="form-group">
             <label>Nome completo</label>
@@ -643,10 +651,24 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
   <p>&copy; 2025 <strong>Nova Franco Precatórios</strong>. Todos os direitos reservados.</p>
 </footer>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Google Analytics (opcional - adicione seu GA ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA-XXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA-XXXXXX');
+</script>
 
 </body>
 </html>
