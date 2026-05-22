@@ -1,674 +1,416 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nova Franco Precatórios – Seu precatório vira dinheiro rápido</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<!-- Google Tag Manager (substitua GTM-XXXXXX pelo seu ID) -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXX');</script>
-<!-- End Google Tag Manager -->
-<style>
-  :root {
-    --navy: #0d1f3c;
-    --gold: #c8882a;
-    --gold-light: #e9a94a;
-    --cream: #f9f6f0;
-    --white: #ffffff;
-    --gray: #6b7280;
-    --light-gray: #f3f4f6;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--navy);
-    overflow-x: hidden;
-  }
-
-  /* ── HEADER ── */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 40px;
-    background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(13,31,60,0.08);
-    box-shadow: 0 2px 20px rgba(13,31,60,0.06);
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .logo-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1;
-  }
-
-  .logo-text strong {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    color: var(--navy);
-    letter-spacing: 0.08em;
-  }
-
-  .logo-text span {
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    font-weight: 500;
-    text-transform: uppercase;
-  }
-
-  .header-cta {
-    background: var(--gold);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    padding: 10px 24px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-    letter-spacing: 0.03em;
-  }
-
-  .header-cta:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    padding: 120px 40px 60px;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .hero-text { position: relative; }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(200,136,42,0.12);
-    border: 1px solid rgba(200,136,42,0.3);
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 50px;
-    margin-bottom: 28px;
-  }
-
-  .badge::before {
-    content: '';
-    width: 6px; height: 6px;
-    background: var(--gold);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.3); }
-  }
-
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 4.5vw, 58px);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--navy);
-    margin-bottom: 24px;
-  }
-
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold);
-    position: relative;
-  }
-
-  .hero h1 em::after {
-    content: '';
-    position: absolute;
-    bottom: 2px; left: 0; right: 0;
-    height: 3px;
-    background: var(--gold);
-    opacity: 0.3;
-    border-radius: 2px;
-  }
-
-  .hero-sub {
-    font-size: 17px;
-    line-height: 1.7;
-    color: var(--gray);
-    margin-bottom: 40px;
-    font-weight: 400;
-  }
-
-  .hero-sub strong {
-    color: var(--navy);
-    font-weight: 600;
-  }
-
-  .trust-row {
-    display: flex;
-    gap: 32px;
-    margin-bottom: 40px;
-  }
-
-  .trust-item {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .trust-item strong {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    font-family: 'Playfair Display', serif;
-  }
-
-  .trust-item span {
-    font-size: 12px;
-    color: var(--gray);
-    font-weight: 500;
-  }
-
-  /* ── FORM ── */
-  .form-card {
-    background: var(--white);
-    border-radius: 24px;
-    padding: 44px 40px;
-    box-shadow: 0 24px 80px rgba(13,31,60,0.12);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .form-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--navy), var(--gold));
-  }
-
-  .form-card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
-
-  .form-card p {
-    font-size: 14px;
-    color: var(--gray);
-    margin-bottom: 28px;
-  }
-
-  .form-group {
-    margin-bottom: 16px;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 6px;
-    letter-spacing: 0.02em;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 13px 16px;
-    border: 1.5px solid #e5e7eb;
-    border-radius: 12px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    color: var(--navy);
-    background: var(--cream);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-
-  .form-group input:focus,
-  .form-group select:focus,
-  .form-group textarea:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(200,136,42,0.12);
-    background: var(--white);
-  }
-
-  .form-group textarea {
-    resize: vertical;
-    min-height: 80px;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-  .btn-submit {
-    width: 100%;
-    padding: 16px;
-    background: var(--gold);
-    color: var(--white);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-    letter-spacing: 0.02em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .btn-submit:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(200,136,42,0.3);
-  }
-
-  .btn-submit:active { transform: translateY(0); }
-
-  .form-note {
-    text-align: center;
-    font-size: 12px;
-    color: var(--gray);
-    margin-top: 12px;
-  }
-
-  /* ── BENEFITS BAR ── */
-  .benefits {
-    background: var(--navy);
-    padding: 60px 40px;
-  }
-
-  .benefits-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-  }
-
-  .benefit-item {
-    text-align: center;
-    color: var(--white);
-  }
-
-  .benefit-icon {
-    width: 52px;
-    height: 52px;
-    background: rgba(200,136,42,0.15);
-    border: 1px solid rgba(200,136,42,0.3);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    font-size: 22px;
-  }
-
-  .benefit-item h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    margin-bottom: 8px;
-  }
-
-  .benefit-item p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.6;
-  }
-
-  /* ── HOW IT WORKS ── */
-  .steps {
-    padding: 90px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 3vw, 40px);
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 60px;
-  }
-
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    position: relative;
-  }
-
-  .steps-grid::before {
-    content: '';
-    position: absolute;
-    top: 32px;
-    left: calc(16.66% + 16px);
-    right: calc(16.66% + 16px);
-    height: 1px;
-    background: linear-gradient(90deg, var(--gold) 0%, transparent 50%, var(--gold) 100%);
-    opacity: 0.3;
-  }
-
-  .step {
-    text-align: center;
-    padding: 32px 24px;
-    border-radius: 20px;
-    background: var(--white);
-    border: 1px solid rgba(13,31,60,0.06);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .step:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(13,31,60,0.1);
-  }
-
-  .step-num {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, var(--navy), #1e3a5f);
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-  }
-
-  .step h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--navy);
-  }
-
-  .step p {
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.6;
-  }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 32px 40px;
-    font-size: 13px;
-  }
-
-  footer strong { color: rgba(255,255,255,0.8); }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .hero-text { animation: fadeUp 0.7s ease both; }
-  .form-card { animation: fadeUp 0.7s 0.15s ease both; }
-
-  /* ── MOBILE ── */
-  @media (max-width: 768px) {
-    header { padding: 16px 20px; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      padding: 100px 20px 50px;
-      gap: 36px;
-    }
-
-    .trust-row { gap: 20px; }
-
-    .form-card { padding: 28px 22px; }
-
-    .form-row { grid-template-columns: 1fr; }
-
-    .benefits { padding: 50px 20px; }
-
-    .benefits-inner {
-      grid-template-columns: 1fr;
-      gap: 28px;
-    }
-
-    .steps { padding: 60px 20px; }
-
-    .steps-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .steps-grid::before { display: none; }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nova Franco Precatórios - Transforme seu precatório em liquidez imediata com a solidez e transparência que você exige. Análise gratuita em até 24 horas.">
+  <meta name="theme-color" content="#05132A">
+  <title>Nova Franco Precatórios – Antecipação de Precatórios com Padrão BTG</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Tag Manager (Substitua GTM-XXXXXX pelo seu ID oficial) -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX'+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+
+  <!-- Meta Pixel - Facebook (Substitua SEU_PIXEL_ID_AQUI pelo seu ID oficial) -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window,document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'SEU_PIXEL_ID_AQUI');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=SEU_PIXEL_ID_AQUI&ev=PageView&noscript=1" /></noscript>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <a class="logo" href="#">
-    <svg class="logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="4,28 18,6 32,28" fill="none" stroke="#0d1f3c" stroke-width="3"/>
-      <polygon points="10,28 18,14 26,28" fill="#c8882a" opacity="0.7"/>
-    </svg>
-    <div class="logo-text">
-      <strong>NOVAFRANCO</strong>
-      <span>Precatórios</span>
+  <!-- GTM noscript -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a class="logo" href="#">
+      <div class="logo-icon">NF</div>
+      <span>
+        <span class="brand-main">Nova Franco</span>
+        <span class="brand-sub">Precatórios</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#beneficios">Diferenciais</a>
+      <a href="#faq">Dúvidas Frequentes</a>
+      <a href="#simulador" class="btn-gold">Simular Antecipação</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-image-bg">
+      <img src="img/hero-woman.png" alt="Especialista Nova Franco">
     </div>
-  </a>
-  <a class="header-cta" href="#form">Solicitar análise grátis →</a>
-</header>
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="section-label" style="color: var(--accent-gold);">Solidez e Segurança Financeira</span>
+        <h1>Seu precatório transformado em <span class="gold-text">liquidez imediata</span>.</h1>
+        <p class="hero-subtitle">
+          Antecipe o recebimento do seu precatório federal, estadual ou municipal. Apresentamos uma análise jurídica e financeira sem compromisso e com a transparência que você exige.
+        </p>
 
-<!-- HERO -->
-<section>
-  <div class="hero">
-
-    <!-- LEFT: texto -->
-    <div class="hero-text">
-      <div class="badge">Análise gratuita em 24h</div>
-      <h1>Seu precatório vira<br><em>dinheiro rápido</em></h1>
-      <p class="hero-sub">
-        Avaliamos seu precatório sem custo e apresentamos uma
-        <strong>proposta personalizada em até 24 horas.</strong>
-        Sem burocracia, sem complicação.
-      </p>
-
-      <div class="trust-row">
-        <div class="trust-item">
-          <strong>+500</strong>
-          <span>Clientes atendidos</span>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">+500</div>
+            <div class="stat-label">Clientes Atendidos</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Prazo de Proposta</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Análise Segura</div>
+          </div>
         </div>
-        <div class="trust-item">
-          <strong>24h</strong>
-          <span>Para sua proposta</span>
+      </div>
+
+      <!-- SIMULATOR AND LEAD CAPTURE CARD -->
+      <div class="premium-card" id="simulador">
+        <div class="card-header-tabs">
+          <button class="tab-btn active" id="tab-simulador-btn" onclick="switchTab('simulador')">1. Simulação</button>
+          <button class="tab-btn" id="tab-cadastro-btn" onclick="switchTab('cadastro')">2. Receber Proposta</button>
         </div>
-        <div class="trust-item">
-          <strong>100%</strong>
-          <span>Grátis a análise</span>
+        
+        <div class="card-body">
+          <!-- TAB 1: SIMULADOR -->
+          <div class="tab-content active" id="tab-simulador">
+            <h3 class="card-title">Simulador de Antecipação</h3>
+            <p class="card-desc">Faça uma estimativa instantânea do valor do seu precatório.</p>
+            
+            <div class="form-group">
+              <label for="sim-esfera">Esfera do Precatório</label>
+              <select class="form-control" id="sim-esfera" onchange="calculateSimulation()">
+                <option value="federal" selected>Federal (TRF / União)</option>
+                <option value="estadual">Estadual (Estados)</option>
+                <option value="municipal">Municipal (Prefeituras)</option>
+              </select>
+            </div>
+            
+            <div class="slider-container">
+              <div class="slider-header">
+                <span class="form-group" style="margin-bottom:0;"><label style="margin-bottom:0;">Valor do Precatório</label></span>
+                <span class="slider-val-box" id="slider-val">R$ 150.000</span>
+              </div>
+              <input type="range" min="10000" max="1000000" step="5000" value="150000" class="range-input" id="sim-range" oninput="updateSliderVal(this.value)">
+              <div class="range-labels">
+                <span>R$ 10 mil</span>
+                <span>R$ 500 mil</span>
+                <span>R$ 1 milhão+</span>
+              </div>
+            </div>
+
+            <div class="simulator-result">
+              <div class="sim-output-label">Valor Estimado Líquido à Vista</div>
+              <div class="sim-output-val" id="sim-estimated-payout">R$ 123.000,00</div>
+              
+              <div class="sim-comparison">
+                <div class="comp-item">
+                  <span>Recebimento</span>
+                  <strong>Em até 24h</strong>
+                </div>
+                <div class="comp-item">
+                  <span>Fila Judicial</span>
+                  <strong>Até 15 anos</strong>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn-submit" onclick="goToProposalTab()">Avançar para Proposta Formal →</button>
+          </div>
+
+          <!-- TAB 2: CADASTRO -->
+          <div class="tab-content" id="tab-cadastro">
+            <h3 class="card-title">Solicitar Proposta Formal</h3>
+            <p class="card-desc">Nossos especialistas jurídicos enviarão um relatório de viabilidade gratuitamente.</p>
+            
+            <form class="hero-form" id="contato-form">
+              <!-- Campos ocultos do simulador para enviar no Formspree -->
+              <input type="hidden" name="esfera_selecionada" id="hidden-esfera" value="Federal">
+              <input type="hidden" name="valor_selecionado" id="hidden-valor" value="R$ 150.000,00">
+              <input type="hidden" name="estimativa_liquida" id="hidden-estimativa" value="R$ 123.000,00">
+
+              <div class="form-group">
+                <label for="lead-name">Nome Completo</label>
+                <input type="text" id="lead-name" name="nome" class="form-control" placeholder="Digite seu nome" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="lead-phone">Telefone / WhatsApp</label>
+                  <input type="tel" id="lead-phone" name="telefone" class="form-control" placeholder="(00) 00000-0000" required>
+                </div>
+                <div class="form-group">
+                  <label for="lead-email">E-mail Corporativo</label>
+                  <input type="email" id="lead-email" name="email" class="form-control" placeholder="seu@email.com" required>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-top: 10px;">
+                <button type="submit" class="btn-submit" id="submit-btn">Garantir Minha Antecipação</button>
+              </div>
+
+              <div class="form-note">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--success);"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                Dados seguros e criptografados sob a LGPD
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- RIGHT: formulário -->
-    <div class="form-card" id="form">
-      <h2>Receba sua proposta</h2>
-      <p>Preencha e entraremos em contato em até 24 horas.</p>
+  <!-- TRUST LOGOS SECTION -->
+  <section class="trust-logos">
+    <div class="container">
+      <div class="trust-title">Precatórios Antecipados de Todas as Esferas e Tribunais</div>
+      <div class="logo-grid">
+        <div class="court-badge" title="Tribunal Regional Federal da 1ª Região">TRF 1</div>
+        <div class="court-badge" title="Tribunal Regional Federal da 2ª Região">TRF 2</div>
+        <div class="court-badge" title="Tribunal Regional Federal da 3ª Região">TRF 3</div>
+        <div class="court-badge" title="Tribunal Regional Federal da 4ª Região">TRF 4</div>
+        <div class="court-badge" title="Tribunal Regional Federal da 5ª Região">TRF 5</div>
+        <div class="court-badge" title="Tribunal de Justiça de São Paulo">TJSP</div>
+        <div class="court-badge" title="Tribunal de Justiça do Rio de Janeiro">TJRJ</div>
+        <div class="court-badge" title="Tribunal de Justiça de Minas Gerais">TJMG</div>
+      </div>
+    </div>
+  </section>
 
-      <form action="https://formspree.io/f/SEU_ID_FORMSPREE" method="POST" onsubmit="gtag('event', 'form_submit', {'value': 100})">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nome completo</label>
-            <input type="text" name="nome" placeholder="Seu nome" required>
+  <!-- BENEFITS / DIFFERENTIERS -->
+  <section class="benefits" id="beneficios">
+    <div class="container">
+      <div class="section-hdr">
+        <span class="section-label">Diferenciais Corporativos</span>
+        <h2 class="section-title">Por que antecipar com a Nova Franco?</h2>
+        <p class="section-subtitle">A união entre a agilidade operacional e o rigor institucional do mercado corporativo.</p>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
           </div>
-          <div class="form-group">
-            <label>Telefone / WhatsApp</label>
-            <input type="tel" name="telefone" placeholder="(00) 00000-0000" required>
+          <h3>Agilidade Premium</h3>
+          <p>Análise de viabilidade jurídica em até 24 horas. Processo estruturado para creditar o valor acordado na sua conta no menor prazo do mercado.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h3>Segurança Institucional</h3>
+          <p>Operação integralmente registrada por escritura pública de cessão de crédito em cartório. Auditoria jurídica rígida de ponta a ponta.</p>
+        </div>
+
+        <div class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h3>Melhor Custo-Benefício</h3>
+          <p>Taxas de deságio justas e transparentes baseadas em taxas financeiras reais de mercado. Sem taxas ocultas, pegadinhas ou tarifas extras.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS (TIMELINE) -->
+  <section class="steps" id="como-funciona">
+    <div class="container">
+      <div class="section-hdr">
+        <span class="section-label">Processo de Cessão</span>
+        <h2 class="section-title">Três passos para receber à vista</h2>
+        <p class="section-subtitle">Procedimento limpo, transparente e juridicamente seguro.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3>Simulação & Envio</h3>
+          <p>Você realiza a estimativa com o nosso simulador inteligente e envia os dados básicos para darmos início ao protocolo.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3>Análise e Proposta</h3>
+          <p>Nossa banca de especialistas analisa as certidões e a regularidade do precatório para emitir uma proposta formal final e transparente.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3>Escritura & Liquidação</h3>
+          <p>Assinamos a escritura pública de cessão de direitos de forma digital ou física no cartório e o dinheiro é transferido diretamente para a sua conta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="faq" id="faq">
+    <div class="container faq-container">
+      <div class="section-hdr">
+        <span class="section-label">Central de Informações</span>
+        <h2 class="section-title">Dúvidas Frequentes</h2>
+        <p class="section-subtitle">Respostas claras sobre o mercado de cessão de créditos judiciais.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <h3>O que é a antecipação de precatório?</h3>
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              A antecipação (ou cessão de crédito) é uma operação legal e autorizada pelo Artigo 78 do ADCT da Constituição Federal. Ela permite que você venda o direito de receber o seu precatório para a Nova Franco em troca de um pagamento à vista com desconto (deságio), eliminando anos de espera na fila do governo.
+            </div>
           </div>
         </div>
 
-        <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" name="email" placeholder="seu@email.com" required>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <h3>A venda do precatório é um processo seguro?</h3>
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Sim, é extremamente seguro. Todo o processo é formalizado por meio de uma **Escritura Pública de Cessão de Crédito** lavrada em Cartório de Notas e informada ao tribunal onde corre o processo. Esse procedimento garante proteção jurídica absoluta tanto para quem vende quanto para quem compra o precatório.
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label>Tipo de precatório</label>
-          <select name="tipo">
-            <option value="">Selecione...</option>
-            <option>Federal</option>
-            <option>Estadual</option>
-            <option>Municipal</option>
-            <option>Não sei</option>
-          </select>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <h3>Quanto tempo leva para o dinheiro cair na minha conta?</h3>
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Após o envio dos documentos básicos e aprovação da análise jurídica, a minuta do contrato é elaborada de imediato. A assinatura e a liquidação financeira (TED ou PIX) ocorrem geralmente em um prazo de **24 a 48 horas úteis**.
+            </div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label>Valor estimado</label>
-          <select name="valor">
-            <option value="">Selecione uma faixa...</option>
-            <option>Até R$ 50 mil</option>
-            <option>R$ 50 mil – R$ 200 mil</option>
-            <option>R$ 200 mil – R$ 500 mil</option>
-            <option>Acima de R$ 500 mil</option>
-          </select>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <h3>A análise do meu precatório tem algum custo inicial?</h3>
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Nenhum. A Nova Franco realiza toda a análise cadastral, verificação de regularidade do processo, cálculos matemáticos e análise de riscos de forma **100% gratuita**. Você só cede o crédito se concordar formalmente com os valores apresentados na proposta.
+            </div>
+          </div>
         </div>
 
-        <button type="submit" class="btn-submit">
-          Quero minha proposta gratuita →
-        </button>
-      </form>
-
-      <p class="form-note">🔒 Seus dados estão seguros. Sem spam.</p>
+        <div class="faq-item">
+          <button class="faq-trigger" onclick="toggleFaq(this)">
+            <h3>Quais tipos de precatório a Nova Franco aceita?</h3>
+            <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              Nós antecipamos precatórios das esferas **Federal** (contra o INSS, União e autarquias federais), **Estadual** (contra governos de estados como São Paulo, Rio de Janeiro, Minas Gerais) e **Municipal** (contra grandes capitais e prefeituras do país), tanto de natureza alimentar quanto comum.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </section>
 
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2>Pronto para destravar seus ativos financeiros?</h2>
+      <p>Nossa banca interna está de prontidão para analisar o seu processo com agilidade absoluta.</p>
+      <a href="#simulador" class="btn-gold">Iniciar Simulação Segura</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-info">
+          <a class="logo" href="#" style="color: var(--white); margin-bottom: 12px;">
+            <div class="logo-icon" style="background: var(--white); color: var(--primary);">NF</div>
+            <span style="color: var(--white);">Nova Franco</span>
+          </a>
+          <p>Intermediação segura de direitos creditórios judiciais federais, estaduais e municipais com excelência e integridade de mercado.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#beneficios">Nossos Diferenciais</a></li>
+            <li><a href="#faq">Dúvidas Frequentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Contato Direto</h4>
+          <ul>
+            <li><a href="mailto:contato@novafranco.com.br">contato@novafranco.com.br</a></li>
+            <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
+            <li>Rua Faria Lima, 2000 - São Paulo, SP</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 <strong>Nova Franco Precatórios</strong>. Todos os direitos reservados. CNPJ: 00.000.000/0001-00</p>
+        <div class="security-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Conexão Segura SSL</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP WIDGET -->
+  <div class="whatsapp-widget">
+    <div class="wa-tooltip">Falar com especialista</div>
+    <div class="wa-pulse"></div>
+    <!-- Substitua o link abaixo pelo seu link de WhatsApp oficial -->
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1,%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20gratuita%20do%20meu%20precat%C3%B3rio." target="_blank" class="wa-btn" aria-label="Fale conosco no WhatsApp">
+      <svg viewBox="0 0 24 24">
+        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.13-1.343a9.94 9.94 0 004.881 1.28c5.508 0 9.99-4.479 9.991-9.985C22.003 6.478 17.518 2 12.012 2zm6.059 14.152c-.27.76-1.357 1.393-1.857 1.488-.475.09-1.092.164-3.13-.675-2.607-1.074-4.269-3.719-4.4-3.892-.128-.172-1.05-1.393-1.05-2.656 0-1.263.66-1.884.896-2.128.236-.243.513-.304.685-.304.173 0 .346.002.496.009.157.007.367-.06.574.453.212.525.728 1.77.79 1.895.064.126.107.272.022.44-.086.17-.128.272-.258.423-.13.15-.27.337-.386.452-.128.127-.26.265-.113.516.146.251.65 1.071 1.395 1.734.96.857 1.768 1.122 2.023 1.25.255.127.404.107.553-.064.15-.17.637-.745.807-.998.17-.253.339-.212.573-.127.234.086 1.487.702 1.742.829.255.127.425.191.489.301.064.111.064.646-.206 1.406z"/>
+      </svg>
+    </a>
   </div>
-</section>
 
-<!-- BENEFITS -->
-<section class="benefits">
-  <div class="benefits-inner">
-    <div class="benefit-item">
-      <div class="benefit-icon">⚡</div>
-      <h3>Rapidez</h3>
-      <p>Proposta em até 24 horas após o envio das informações.</p>
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast-success" class="toast">
+    <div class="toast-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
     </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">🔒</div>
-      <h3>Segurança</h3>
-      <p>Processo 100% transparente e seguro juridicamente.</p>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-icon">💰</div>
-      <h3>Melhor valor</h3>
-      <p>Oferecemos as melhores condições do mercado para seu precatório.</p>
-    </div>
+    <div class="toast-msg">Solicitação enviada com sucesso!</div>
   </div>
-</section>
 
-<!-- STEPS -->
-<section class="steps">
-  <p class="section-label">Como funciona</p>
-  <h2 class="section-title">Simples assim</h2>
-
-  <div class="steps-grid">
-    <div class="step">
-      <div class="step-num">1</div>
-      <h3>Você preenche</h3>
-      <p>Envie seus dados e as informações do precatório pelo formulário.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">2</div>
-      <h3>A gente analisa</h3>
-      <p>Nossa equipe avalia o seu precatório em até 24 horas, gratuitamente.</p>
-    </div>
-    <div class="step">
-      <div class="step-num">3</div>
-      <h3>Você recebe</h3>
-      <p>Apresentamos uma proposta personalizada. Sem compromisso.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 <strong>Nova Franco Precatórios</strong>. Todos os direitos reservados.</p>
-</footer>
-
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-<!-- Google Analytics (opcional - adicione seu GA ID) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA-XXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'GA-XXXXXX');
-</script>
-
+  <!-- App Logic -->
+  <script src="js/app.js"></script>
 </body>
 </html>
