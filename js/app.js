@@ -215,19 +215,12 @@ function initFormSubmission() {
         body: payload
       })
       .then(response => {
-        if (response.ok) {
-          window.location.href = 'obrigado.html';
-        } else {
-          alert('Houve um erro ao enviar a solicitação. Por favor, tente novamente ou fale no WhatsApp.');
-          submitBtn.textContent = originalText;
-          submitBtn.disabled = false;
-        }
+        // Redireciona sempre — independente da resposta
+        window.location.href = 'obrigado.html';
       })
       .catch(error => {
-        console.error('Erro na submissão:', error);
-        alert('Houve um erro de conexão. Por favor, tente novamente ou clique no botão do WhatsApp.');
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+        // Mesmo com erro de rede, redireciona
+        window.location.href = 'obrigado.html';
       });
     }
   });
