@@ -1,6 +1,6 @@
 // ── CONFIGURAÇÃO DO FORMSPREE ──
 // Substitua o valor abaixo pelo seu ID oficial do Formspree (encontrado após criar o formulário em formspree.io)
-const FORMSPREE_FORM_ID = 'SEU_FORM_ID'; 
+const FORMSPREE_FORM_ID = 'xredyqar';
 
 // ── PILL SELECTION ──
 function selectPill(btn, group) {
