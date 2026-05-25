@@ -1,8 +1,8 @@
 :root {
   /* BTG Pactual Palette */
-  --primary: #001E62;             /* BTG Royal Navy */
-  --primary-dark: #05132A;        /* Midnight Navy */
-  --primary-light: #0B2859;       /* Medium Slate Navy */
+  --primary: #295CAA;             /* Tech Blue */
+  --primary-dark: #1E4480;        /* Darker Tech Blue */
+  --primary-light: #3D7EC4;       /* Lighter Tech Blue */
   --accent: #307AE0;              /* Tech Accent Blue */
   --accent-light: #549CFF;        /* High-contrast Bright Blue */
   --accent-gold: #C5A880;         /* Luxury Gold/Champagne */
@@ -607,6 +607,39 @@ header.scrolled {
   box-shadow: 0 6px 18px rgba(0, 30, 98, 0.2);
 }
 
+/* ── OPTION PILLS ── */
+.option-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pill-btn {
+  padding: 8px 14px;
+  border-radius: 50px;
+  border: 1.5px solid var(--gray-300);
+  background: var(--white);
+  color: var(--gray-700);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.pill-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(41, 92, 170, 0.05);
+}
+
+.pill-btn.selected {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
 .form-note {
   font-size: 11px;
   color: var(--gray-400);
@@ -785,8 +818,8 @@ header.scrolled {
   left: 30px;
   width: 40px;
   height: 40px;
-  background: var(--primary);
-  color: var(--accent-gold);
+  background: var(--white);
+  color: var(--primary);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -795,7 +828,7 @@ header.scrolled {
   font-weight: 800;
   font-size: 16px;
   box-shadow: 0 4px 10px rgba(0, 30, 98, 0.15);
-  border: 1px solid rgba(197, 168, 128, 0.3);
+  border: 1px solid var(--gray-200);
 }
 
 .step-card h3 {

@@ -15,12 +15,13 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Google Tag Manager (Substitua GTM-XXXXXX pelo seu ID oficial) -->
+  <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX'+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXX');</script>
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PXS7DNHP');</script>
+  <!-- End Google Tag Manager -->
 
   <!-- Meta Pixel - Facebook (Substitua SEU_PIXEL_ID_AQUI pelo seu ID oficial) -->
   <script>
@@ -40,9 +41,10 @@
 </head>
 <body>
 
-  <!-- GTM noscript -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXS7DNHP"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- HEADER -->
   <header id="header">
@@ -57,7 +59,7 @@
       <a href="#como-funciona">Como funciona</a>
       <a href="#beneficios">Diferenciais</a>
       <a href="#faq">Dúvidas Frequentes</a>
-      <a href="#simulador" class="btn-gold">Simular Antecipação</a>
+      <a href="#simulador" class="btn-gold">Receber Proposta</a>
     </nav>
   </header>
 
@@ -92,68 +94,39 @@
 
       <!-- SIMULATOR AND LEAD CAPTURE CARD -->
       <div class="premium-card" id="simulador">
-        <div class="card-header-tabs">
-          <button class="tab-btn active" id="tab-simulador-btn" onclick="switchTab('simulador')">1. Simulação</button>
-          <button class="tab-btn" id="tab-cadastro-btn" onclick="switchTab('cadastro')">2. Receber Proposta</button>
-        </div>
-        
         <div class="card-body">
-          <!-- TAB 1: SIMULADOR -->
-          <div class="tab-content active" id="tab-simulador">
-            <h3 class="card-title">Simulador de Antecipação</h3>
-            <p class="card-desc">Faça uma estimativa instantânea do valor do seu precatório.</p>
-            
-            <div class="form-group">
-              <label for="sim-esfera">Esfera do Precatório</label>
-              <select class="form-control" id="sim-esfera" onchange="calculateSimulation()">
-                <option value="federal" selected>Federal (TRF / União)</option>
-                <option value="estadual">Estadual (Estados)</option>
-                <option value="municipal">Municipal (Prefeituras)</option>
-              </select>
-            </div>
-            
-            <div class="slider-container">
-              <div class="slider-header">
-                <span class="form-group" style="margin-bottom:0;"><label style="margin-bottom:0;">Valor do Precatório</label></span>
-                <span class="slider-val-box" id="slider-val">R$ 150.000</span>
-              </div>
-              <input type="range" min="10000" max="1000000" step="5000" value="150000" class="range-input" id="sim-range" oninput="updateSliderVal(this.value)">
-              <div class="range-labels">
-                <span>R$ 10 mil</span>
-                <span>R$ 500 mil</span>
-                <span>R$ 1 milhão+</span>
-              </div>
-            </div>
-
-            <div class="simulator-result">
-              <div class="sim-output-label">Valor Estimado Líquido à Vista</div>
-              <div class="sim-output-val" id="sim-estimated-payout">R$ 123.000,00</div>
-              
-              <div class="sim-comparison">
-                <div class="comp-item">
-                  <span>Recebimento</span>
-                  <strong>Em até 24h</strong>
-                </div>
-                <div class="comp-item">
-                  <span>Fila Judicial</span>
-                  <strong>Até 15 anos</strong>
-                </div>
-              </div>
-            </div>
-
-            <button type="button" class="btn-submit" onclick="goToProposalTab()">Avançar para Proposta Formal →</button>
-          </div>
-
-          <!-- TAB 2: CADASTRO -->
-          <div class="tab-content" id="tab-cadastro">
+          <!-- FORMULÁRIO DE PROPOSTA -->
+          <div class="tab-content active" id="tab-cadastro">
             <h3 class="card-title">Solicitar Proposta Formal</h3>
             <p class="card-desc">Nossos especialistas jurídicos enviarão um relatório de viabilidade gratuitamente.</p>
-            
+
             <form class="hero-form" id="contato-form">
-              <!-- Campos ocultos do simulador para enviar no Formspree -->
-              <input type="hidden" name="esfera_selecionada" id="hidden-esfera" value="Federal">
-              <input type="hidden" name="valor_selecionado" id="hidden-valor" value="R$ 150.000,00">
-              <input type="hidden" name="estimativa_liquida" id="hidden-estimativa" value="R$ 123.000,00">
+
+              <!-- VALOR DA DÍVIDA -->
+              <div class="form-group">
+                <label>Valor da Dívida</label>
+                <div class="option-pills" id="valor-pills">
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'valor')" data-value="Até R$ 50 mil">Até R$ 50 mil</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'valor')" data-value="R$ 50 mil a R$ 100 mil">R$ 50 mil – R$ 100 mil</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'valor')" data-value="R$ 100 mil a R$ 500 mil">R$ 100 mil – R$ 500 mil</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'valor')" data-value="Acima de R$ 500 mil">Acima de R$ 500 mil</button>
+                </div>
+                <input type="hidden" name="valor_divida" id="hidden-valor-divida" value="">
+              </div>
+
+              <!-- MUNICÍPIO -->
+              <div class="form-group">
+                <label>Município do Precatório</label>
+                <div class="option-pills" id="municipio-pills">
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Municipal Duque de Caxias">Duque de Caxias</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Municipal Angra dos Reis">Angra dos Reis</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Municipal Rio de Janeiro">Rio de Janeiro</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Municipal São João de Meriti">São João de Meriti</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Municipal Niterói">Niterói</button>
+                  <button type="button" class="pill-btn" onclick="selectPill(this, 'municipio')" data-value="Outro município">Outros</button>
+                </div>
+                <input type="hidden" name="municipio" id="hidden-municipio" value="">
+              </div>
 
               <div class="form-group">
                 <label for="lead-name">Nome Completo</label>
@@ -166,7 +139,7 @@
                   <input type="tel" id="lead-phone" name="telefone" class="form-control" placeholder="(00) 00000-0000" required>
                 </div>
                 <div class="form-group">
-                  <label for="lead-email">E-mail Corporativo</label>
+                  <label for="lead-email">E-mail</label>
                   <input type="email" id="lead-email" name="email" class="form-control" placeholder="seu@email.com" required>
                 </div>
               </div>
@@ -186,22 +159,6 @@
     </div>
   </section>
 
-  <!-- TRUST LOGOS SECTION -->
-  <section class="trust-logos">
-    <div class="container">
-      <div class="trust-title">Precatórios Antecipados de Todas as Esferas e Tribunais</div>
-      <div class="logo-grid">
-        <div class="court-badge" title="Tribunal Regional Federal da 1ª Região">TRF 1</div>
-        <div class="court-badge" title="Tribunal Regional Federal da 2ª Região">TRF 2</div>
-        <div class="court-badge" title="Tribunal Regional Federal da 3ª Região">TRF 3</div>
-        <div class="court-badge" title="Tribunal Regional Federal da 4ª Região">TRF 4</div>
-        <div class="court-badge" title="Tribunal Regional Federal da 5ª Região">TRF 5</div>
-        <div class="court-badge" title="Tribunal de Justiça de São Paulo">TJSP</div>
-        <div class="court-badge" title="Tribunal de Justiça do Rio de Janeiro">TJRJ</div>
-        <div class="court-badge" title="Tribunal de Justiça de Minas Gerais">TJMG</div>
-      </div>
-    </div>
-  </section>
 
   <!-- BENEFITS / DIFFERENTIERS -->
   <section class="benefits" id="beneficios">
@@ -347,7 +304,7 @@
     <div class="cta-container">
       <h2>Pronto para destravar seus ativos financeiros?</h2>
       <p>Nossa banca interna está de prontidão para analisar o seu processo com agilidade absoluta.</p>
-      <a href="#simulador" class="btn-gold">Iniciar Simulação Segura</a>
+      <a href="#simulador" class="btn-gold">Receber Proposta Gratuita</a>
     </div>
   </section>
 

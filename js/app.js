@@ -2,6 +2,16 @@
 // Substitua o valor abaixo pelo seu ID oficial do Formspree (encontrado após criar o formulário em formspree.io)
 const FORMSPREE_FORM_ID = 'SEU_FORM_ID'; 
 
+// ── PILL SELECTION ──
+function selectPill(btn, group) {
+  const container = document.getElementById(group + '-pills');
+  container.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  const hiddenMap = { valor: 'hidden-valor-divida', municipio: 'hidden-municipio' };
+  const hidden = document.getElementById(hiddenMap[group]);
+  if (hidden) hidden.value = btn.getAttribute('data-value');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   // Inicialização das interações
   initSimulator();
