@@ -155,74 +155,10 @@ function initFormSubmission() {
   if (!form) return;
 
   form.addEventListener('submit', function(event) {
-    event.preventDefault();
     const submitBtn = document.getElementById('submit-btn');
-    const originalText = submitBtn.textContent;
-
-    // Atualizar estado de envio
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-
-    const formData = new FormData(form);
-    const data = {
-      nome: formData.get('nome'),
-      telefone: formData.get('telefone'),
-      email: formData.get('email'),
-      valor_divida: formData.get('valor_divida'),
-      municipio: formData.get('municipio'),
-      timestamp: new Date().toISOString()
-    };
-
-    // 📊 EVENTOS DE RASTREAMENTO (GTM & Meta Pixel)
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'lead_form_submit', {
-        'form_name': 'precatario_simulador_btg',
-        'email': data.email,
-        'phone': data.telefone,
-        'value': data.valorOriginal
-      });
-    }
-
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead', {
-        content_name: 'Simulacao Precatório BTG',
-        value: parseFloat(formData.get('valor_selecionado').replace(/\D/g, '')) / 100 || 0,
-        currency: 'BRL'
-      });
-    }
-
-    console.log('Dados prontos para envio:', data);
-
-    // Se o usuário não alterou o ID, simula o sucesso para propósitos de teste local do cliente
-    if (FORMSPREE_FORM_ID === 'SEU_FORM_ID') {
-      setTimeout(() => {
-        showSuccessState(form, submitBtn, originalText);
-        console.warn('Formspree: ID padrão detectado ("SEU_FORM_ID"). Simulação de envio completada com sucesso. Substitua pelo ID real para receber emails.');
-      }, 800);
-    } else {
-      // Envio real via Formspree
-      const payload = new FormData();
-      payload.append('nome', data.nome);
-      payload.append('telefone', data.telefone);
-      payload.append('email', data.email);
-      payload.append('valor_divida', data.valor_divida);
-      payload.append('municipio', data.municipio);
-      payload.append('timestamp', data.timestamp);
-
-      fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: payload
-      })
-      .then(response => {
-        // Redireciona sempre — independente da resposta
-        window.location.href = 'obrigado.html';
-      })
-      .catch(error => {
-        // Mesmo com erro de rede, redireciona
-        window.location.href = 'obrigado.html';
-      });
-    }
+    // Deixa o formulário submeter normalmente via action/POST
   });
 }
 
