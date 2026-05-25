@@ -65,9 +65,6 @@
 
   <!-- HERO SECTION -->
   <section class="hero">
-    <div class="hero-image-bg">
-      <img src="img/hero-woman.png" alt="Especialista Nova Franco">
-    </div>
     <div class="container hero-container">
       <div class="hero-content">
         <span class="section-label" style="color: var(--accent-gold);">Solidez e Segurança Financeira</span>
@@ -92,7 +89,16 @@
         </div>
       </div>
 
-      <!-- SIMULATOR AND LEAD CAPTURE CARD -->
+      <!-- FOTO CRISTIANE -->
+      <div class="hero-image-bg">
+        <img src="img/cristiane.webp" alt="Cristiane Franco - Especialista em Intermediação de Precatórios">
+        <div class="hero-image-caption">
+          <span class="hero-caption-name">Cristiane Franco</span>
+          <span class="hero-caption-title">Especialista em Intermediação de Precatórios</span>
+        </div>
+      </div>
+
+      <!-- FORMULÁRIO -->
       <div class="premium-card" id="simulador">
         <div class="card-body">
           <!-- FORMULÁRIO DE PROPOSTA -->
@@ -116,9 +122,10 @@
 
               <!-- MUNICÍPIO -->
               <div class="form-group">
-                <label for="select-municipio">Município do Precatório</label>
+                <label for="select-municipio">Ente Devedor</label>
                 <select class="form-control" id="select-municipio" name="municipio" required>
                   <option value="" disabled selected>Selecione o município</option>
+                  <option value="Federal">Federal (qualquer tribunal federal)</option>
                   <option value="Municipal Duque de Caxias">Duque de Caxias</option>
                   <option value="Municipal Angra dos Reis">Angra dos Reis</option>
                   <option value="Municipal Rio de Janeiro">Rio de Janeiro</option>
