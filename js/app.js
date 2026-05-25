@@ -201,13 +201,18 @@ function initFormSubmission() {
       }, 800);
     } else {
       // Envio real via Formspree
+      const payload = new FormData();
+      payload.append('nome', data.nome);
+      payload.append('telefone', data.telefone);
+      payload.append('email', data.email);
+      payload.append('valor_divida', data.valor_divida);
+      payload.append('municipio', data.municipio);
+      payload.append('timestamp', data.timestamp);
+
       fetch(`https://formspree.io/f/${FORMSPREE_FORM_ID}`, {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
+        headers: { 'Accept': 'application/json' },
+        body: payload
       })
       .then(response => {
         if (response.ok) {
