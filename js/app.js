@@ -168,9 +168,8 @@ function initFormSubmission() {
       nome: formData.get('nome'),
       telefone: formData.get('telefone'),
       email: formData.get('email'),
-      esfera: formData.get('esfera_selecionada'),
-      valorOriginal: formData.get('valor_selecionado'),
-      valorEstimadoVista: formData.get('estimativa_liquida'),
+      valor_divida: formData.get('valor_divida'),
+      municipio: formData.get('municipio'),
       timestamp: new Date().toISOString()
     };
 
@@ -249,13 +248,5 @@ function showSuccessState(form, submitBtn, originalText) {
     submitBtn.style.borderColor = '';
     submitBtn.disabled = false;
     form.reset();
-    
-    // Retornar o simulador para a primeira aba e redefinir valores
-    switchTab('simulador');
-    const rangeInput = document.getElementById('sim-range');
-    if (rangeInput) {
-      rangeInput.value = 150000;
-      updateSliderVal(150000);
-    }
   }, 3000);
 }
