@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitação Recebida – Nova Franco Precatórios</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PXS7DNHP');</script>
+  <!-- End Google Tag Manager -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #295CAA;
+      --primary-dark: #1E4480;
+      --accent-gold: #C5A880;
+      --white: #FFFFFF;
+      --gray-400: #94A3B8;
+      --gray-700: #334155;
+      --success: #10B981;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 60% 20%, #0c2044 0%, #1E4480 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      padding: 40px 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 48px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--primary);
+      border: 2px solid var(--accent-gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--accent-gold);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--accent-gold);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 16px;
+      padding: 52px 48px;
+      max-width: 520px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .check-circle {
+      width: 72px;
+      height: 72px;
+      background: #ECFDF5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .check-circle svg {
+      color: var(--success);
+    }
+
+    .card h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #64748B;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid #E2E8F0;
+      margin: 28px 0;
+    }
+
+    .next-steps {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .next-steps h3 {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .step-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .step-dot {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 1px;
+    }
+
+    .step-text {
+      font-size: 13.5px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      width: 100%;
+      margin-bottom: 12px;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe59;
+      transform: translateY(-1px);
+    }
+
+    .btn-voltar {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: #94A3B8;
+      text-decoration: none;
+      padding: 10px;
+      transition: color 0.2s;
+    }
+
+    .btn-voltar:hover {
+      color: var(--primary);
+    }
+
+    .cristiane {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 28px;
+      text-align: left;
+    }
+
+    .cristiane img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--accent-gold);
+    }
+
+    .cristiane-info strong {
+      display: block;
+      font-size: 14px;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .cristiane-info span {
+      font-size: 12px;
+      color: #64748B;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXS7DNHP"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a href="index.html" class="logo">
+    <div class="logo-icon">NF</div>
+    <div class="logo-text">
+      <span class="logo-main">Nova Franco</span>
+      <span class="logo-sub">Precatórios</span>
+    </div>
+  </a>
+
+  <div class="card">
+
+    <div class="check-circle">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+
+    <h1>Solicitação recebida!</h1>
+    <p>Obrigado pelo contato. Nossa equipe vai analisar seu precatório e entrar em contato em até <strong>24 horas</strong> com uma proposta formal.</p>
+
+    <div class="cristiane">
+      <img src="img/cristiane.webp" alt="Cristiane Franco">
+      <div class="cristiane-info">
+        <strong>Cristiane Franco</strong>
+        <span>Especialista em Intermediação de Precatórios</span>
+      </div>
+    </div>
+
+    <div class="next-steps">
+      <h3>O que acontece agora</h3>
+      <div class="step-item">
+        <div class="step-dot">1</div>
+        <div class="step-text">Nossa equipe analisa a viabilidade jurídica do seu precatório gratuitamente.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-dot">2</div>
+        <div class="step-text">Você recebe uma proposta formal com o valor líquido à vista em até 24h.</div>
+      </div>
+      <div class="step-item">
+        <div class="step-dot">3</div>
+        <div class="step-text">Após aceite, assinamos a escritura e o dinheiro cai na sua conta.</div>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <a href="https://wa.me/5521969999737?text=Ol%C3%A1%2C%20acabei%20de%20solicitar%20uma%20proposta%20no%20site%20e%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="btn-whatsapp">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.333 4.993L2 22l5.13-1.343a9.94 9.94 0 004.881 1.28c5.508 0 9.99-4.479 9.991-9.985C22.003 6.478 17.518 2 12.012 2zm6.059 14.152c-.27.76-1.357 1.393-1.857 1.488-.475.09-1.092.164-3.13-.675-2.607-1.074-4.269-3.719-4.4-3.892-.128-.172-1.05-1.393-1.05-2.656 0-1.263.66-1.884.896-2.128.236-.243.513-.304.685-.304.173 0 .346.002.496.009.157.007.367-.06.574.453.212.525.728 1.77.79 1.895.064.126.107.272.022.44-.086.17-.128.272-.258.423-.13.15-.27.337-.386.452-.128.127-.26.265-.113.516.146.251.65 1.071 1.395 1.734.96.857 1.768 1.122 2.023 1.25.255.127.404.107.553-.064.15-.17.637-.745.807-.998.17-.253.339-.212.573-.127.234.086 1.487.702 1.742.829.255.127.425.191.489.301.064.111.064.646-.206 1.406z"/>
+      </svg>
+      Falar com especialista agora
+    </a>
+
+    <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+
+  </div>
+
+</body>
+</html>

@@ -211,7 +211,7 @@ function initFormSubmission() {
       })
       .then(response => {
         if (response.ok) {
-          showSuccessState(form, submitBtn, originalText);
+          window.location.href = 'obrigado.html';
         } else {
           alert('Houve um erro ao enviar a solicitação. Por favor, tente novamente ou fale no WhatsApp.');
           submitBtn.textContent = originalText;
