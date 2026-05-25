@@ -155,10 +155,25 @@ function initFormSubmission() {
   if (!form) return;
 
   form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
     const submitBtn = document.getElementById('submit-btn');
     submitBtn.textContent = 'Enviando...';
     submitBtn.disabled = true;
-    // Deixa o formulário submeter normalmente via action/POST
+
+    const formData = new FormData(form);
+
+    fetch('https://formspree.io/f/xredyqar', {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function() {
+      window.location.href = 'obrigado.html';
+    })
+    .catch(function() {
+      window.location.href = 'obrigado.html';
+    });
   });
 }
 
