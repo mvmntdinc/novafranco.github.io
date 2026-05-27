@@ -317,9 +317,18 @@ header.scrolled {
   font-size: 16px;
   line-height: 1.8;
   color: var(--gray-400);
-  margin-bottom: 40px;
+  margin-bottom: 16px;
   max-width: 580px;
   font-weight: 300;
+}
+
+.hero-cidades {
+  font-size: 13px;
+  color: var(--accent-gold);
+  margin-bottom: 32px;
+  max-width: 580px;
+  font-weight: 400;
+  opacity: 0.85;
 }
 
 .hero-stats {
@@ -1001,16 +1010,57 @@ footer {
   color: var(--white);
 }
 
+.footer-legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px 0 16px;
+  margin-bottom: 4px;
+}
+
+.footer-legal p {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.6;
+  text-align: center;
+  opacity: 0.7;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 30px;
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .footer-bottom p {
   color: var(--gray-500);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footer-bottom-links a {
+  color: var(--gray-500);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-bottom-links a:hover {
+  color: var(--white);
+}
+
+.footer-bottom-links span {
+  color: var(--gray-500);
+  opacity: 0.4;
 }
 
 .security-badge {
