@@ -1273,6 +1273,12 @@ footer {
 
 @media (max-width: 768px) {
 
+  /* 0. WHATSAPP — sobe acima do botão fixo e desloca para não sobrepor */
+  .whatsapp-widget {
+    bottom: 80px !important;
+    z-index: 10000 !important;
+  }
+
   /* 1. PADDING NO BODY para conteúdo não ficar atrás do botão fixo */
   body {
     padding-bottom: 72px;
@@ -1374,20 +1380,14 @@ footer {
     display: none !important;
   }
 
-  /* Oculta o campo email e seu label */
-  #lead-email {
-    display: none !important;
-  }
-  label[for="lead-email"] {
-    display: none !important;
-  }
-  /* Oculta o form-group do email dentro do form-row */
-  .form-row .form-group:last-child {
-    display: none !important;
-  }
-  /* Se form-row ficar com só um campo, expande para full width */
+
+  /* Garante que o form-row aparece no mobile */
   .form-row {
+    display: grid !important;
     grid-template-columns: 1fr !important;
   }
+
+  /* Email visível no mobile — útil para CRM e listas offline */
+  /* Apenas valor da dívida permanece oculto */
 
 }
