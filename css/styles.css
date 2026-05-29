@@ -1337,35 +1337,30 @@ footer {
     border: 1px solid #C5A880;
   }
 
-  /* 4. MOVER FORMULÁRIO para antes dos stats — flexbox order */
+  /* 4. MOVER FORMULÁRIO para antes dos stats — hero-container vira flex */
   .hero-container {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 
+  /* hero-content vira flex também para controlar order dos filhos */
   .hero-content {
-    display: flex;
-    flex-direction: column;
+    display: flex !important;
+    flex-direction: column !important;
     order: 1;
   }
 
-  /* título, subtitle, cidades ficam primeiro */
-  .hero-content h1,
-  .hero-content .section-label,
-  .hero-content .hero-subtitle,
-  .hero-content .hero-cidades {
-    order: 1;
-  }
-
-  /* stats vão depois do formulário */
+  /* stats ficam por último */
   .hero-stats {
-    order: 3;
+    order: 10 !important;
     margin-top: 24px;
   }
 
-  /* formulário (premium-card) sobe para order 2 */
+  /* formulário (premium-card) sobe logo após o hero-content */
   .premium-card {
-    order: 2;
+    order: 2 !important;
+    width: 100%;
   }
 
   /* 5. TROCAR TEXTO do card title apenas no mobile */
