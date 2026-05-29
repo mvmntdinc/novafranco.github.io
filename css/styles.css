@@ -1381,12 +1381,6 @@ footer {
   }
 
 
-  /* Garante que o form-row aparece no mobile */
-  .form-row {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-  }
-
   /* Email visível no mobile — útil para CRM e listas offline */
   /* Apenas valor da dívida permanece oculto */
 
