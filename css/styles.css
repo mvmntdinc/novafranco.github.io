@@ -1265,6 +1265,11 @@ footer {
   }
 }
 
+
+/* Botão WhatsApp no header — oculto no desktop, visível só no mobile */
+.header-whatsapp-btn {
+  display: none;
+}
 /* ============================================================
    MOBILE CONVERSION IMPROVEMENTS — max-width: 768px
    Apenas melhorias de conversão mobile. Nada do desktop foi
@@ -1284,9 +1289,22 @@ footer {
     padding-bottom: 72px;
   }
 
-  /* 2. OCULTAR links do menu — mantém logo e botão CTA do header */
-  .nav a:not(.btn-gold) {
-    display: none;
+  /* 2. OCULTAR nav completo no mobile */
+  .nav {
+    display: none !important;
+  }
+
+  /* Mostrar botão WhatsApp no header mobile */
+  .header-whatsapp-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  /* Ocultar WhatsApp flutuante no mobile */
+  .whatsapp-widget {
+    display: none !important;
   }
 
   /* 3. BOTÃO FIXO NO RODAPÉ */
