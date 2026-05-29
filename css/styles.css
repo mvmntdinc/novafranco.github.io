@@ -1284,9 +1284,9 @@ footer {
     z-index: 10000 !important;
   }
 
-  /* 1. PADDING NO BODY para conteúdo não ficar atrás do botão fixo */
+  /* 1. Padding bottom removido — botão fixo não existe mais no mobile */
   body {
-    padding-bottom: 72px;
+    padding-bottom: 16px;
   }
 
   /* 2. OCULTAR nav completo no mobile */
@@ -1302,14 +1302,14 @@ footer {
     margin-left: auto;
   }
 
-  /* Ocultar WhatsApp flutuante no mobile */
+  /* WhatsApp flutuante visível no mobile */
   .whatsapp-widget {
-    display: none !important;
+    bottom: 80px;
   }
 
   /* 3. BOTÃO FIXO NO RODAPÉ */
   .mobile-sticky-cta {
-    display: flex !important;
+    display: none !important;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -1337,30 +1337,23 @@ footer {
     border: 1px solid #C5A880;
   }
 
-  /* 4. MOVER FORMULÁRIO para antes dos stats — hero-container vira flex */
+  /* 4. FORMULÁRIO PRIMEIRO no mobile — hero-container vira flex */
   .hero-container {
     display: flex !important;
     flex-direction: column !important;
     gap: 0 !important;
   }
 
-  /* hero-content vira flex também para controlar order dos filhos */
-  .hero-content {
-    display: flex !important;
-    flex-direction: column !important;
-    order: 1;
-  }
-
-  /* stats ficam por último */
-  .hero-stats {
-    order: 10 !important;
-    margin-top: 24px;
-  }
-
-  /* formulário (premium-card) sobe logo após o hero-content */
+  /* formulário aparece primeiro */
   .premium-card {
-    order: 2 !important;
+    order: 1 !important;
     width: 100%;
+    margin-bottom: 32px;
+  }
+
+  /* hero-content (headline, subtitle, cidades, stats) vem depois */
+  .hero-content {
+    order: 2 !important;
   }
 
   /* 5. TROCAR TEXTO do card title apenas no mobile */
@@ -1379,22 +1372,6 @@ footer {
     font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
-  /* 6. OCULTAR campos email e valor da dívida no mobile */
-  /* Os campos continuam no HTML e são enviados normalmente — só ficam invisíveis */
-
-  /* Oculta o form-group do select-valor (primeiro form-group do form) */
-  #select-valor {
-    display: none !important;
-  }
-  label[for="select-valor"] {
-    display: none !important;
-  }
-  #contato-form .form-group:first-child {
-    display: none !important;
-  }
-
-
-  /* Email visível no mobile — útil para CRM e listas offline */
-  /* Apenas valor da dívida permanece oculto */
+  /* Todos os campos visíveis no mobile */
 
 }
