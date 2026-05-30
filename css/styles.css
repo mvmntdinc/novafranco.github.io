@@ -1249,6 +1249,73 @@ footer {
   }
 }
 
+/* ── MOBILE LAYOUT (max-width: 768px) - REORDER HERO ELEMENTS ── */
+@media (max-width: 768px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* Ordem dos elementos no mobile */
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-content h1 {
+    order: 1;
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .hero-content p.hero-subtitle {
+    order: 2;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .hero-stats {
+    order: 3;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stat-number {
+    font-size: 20px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+  }
+
+  .section-label {
+    order: 0;
+  }
+
+  .hero-cidades {
+    order: 4;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .premium-card {
+    order: 5;
+  }
+
+  .hero-image-bg {
+    display: none;
+  }
+
+  .card-body {
+    padding: 20px 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-stats {
     grid-template-columns: 1fr;
