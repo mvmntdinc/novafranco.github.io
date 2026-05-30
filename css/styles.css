@@ -1219,19 +1219,6 @@ footer {
     text-align: center;
   }
 
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero-content p.hero-subtitle {
-    margin: 0 auto 40px;
-  }
-
-  .hero-stats {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
   .benefits-grid, .steps-grid {
     grid-template-columns: 1fr;
     gap: 30px;
@@ -1253,63 +1240,6 @@ footer {
   }
 }
 
-/* ── MOBILE LAYOUT (max-width: 768px) ── */
-@media (max-width: 768px) {
-  .hero-container {
-    display: block !important;
-  }
-
-  .hero-content {
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .hero-content .section-label {
-    display: block;
-    font-size: 11px;
-    margin-bottom: 12px;
-  }
-
-  .hero-content h1 {
-    font-size: 24px;
-    line-height: 1.2;
-    margin-bottom: 12px;
-  }
-
-  .hero-content p.hero-subtitle {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-
-  .hero-content .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    padding-top: 20px;
-    margin-bottom: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .hero-content p.hero-cidades {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 24px;
-  }
-
-  .premium-card {
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .hero-image-bg {
-    display: none !important;
-  }
-
-  .card-body {
-    padding: 20px 16px;
-  }
-}
 
 /* Botão WhatsApp no header — oculto no desktop, visível só no mobile */
 .header-whatsapp-btn {
@@ -1382,23 +1312,28 @@ footer {
     border: 1px solid #C5A880;
   }
 
-  /* 4. FORMULÁRIO PRIMEIRO no mobile — hero-container vira flex */
+  /* 4. REORDENAR NO MOBILE — hero-container vira flex */
   .hero-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0 !important;
+    gap: 24px !important;
   }
 
-  /* formulário aparece primeiro */
-  .premium-card {
-    order: 1 !important;
-    width: 100%;
-    margin-bottom: 32px;
-  }
-
-  /* hero-content (headline, subtitle, cidades, stats) vem depois */
+  /* Conteúdo (headline, subtitle, cidades, stats) aparece PRIMEIRO */
   .hero-content {
+    order: 1 !important;
+  }
+
+  /* Formulário aparece POR ÚLTIMO */
+  .premium-card {
     order: 2 !important;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  /* Ocultar imagem */
+  .hero-image-bg {
+    display: none !important;
   }
 
   /* 5. TROCAR TEXTO do card title apenas no mobile */
