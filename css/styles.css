@@ -1219,6 +1219,10 @@ footer {
     text-align: center;
   }
 
+  .hero-content {
+    text-align: center;
+  }
+
   .hero-content p.hero-subtitle {
     margin: 0 auto 40px;
   }
@@ -1249,89 +1253,63 @@ footer {
   }
 }
 
-/* ── MOBILE LAYOUT (max-width: 768px) - REORDER HERO ELEMENTS ── */
+/* ── MOBILE LAYOUT (max-width: 768px) ── */
 @media (max-width: 768px) {
   .hero-container {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    display: block !important;
   }
 
-  /* Ordem dos elementos no mobile */
   .hero-content {
-    order: 1;
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .hero-content .section-label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 12px;
   }
 
   .hero-content h1 {
-    order: 1;
     font-size: 24px;
     line-height: 1.2;
     margin-bottom: 12px;
   }
 
   .hero-content p.hero-subtitle {
-    order: 2;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 20px;
   }
 
-  .hero-stats {
-    order: 3;
+  .hero-content .hero-stats {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding-top: 20px;
+    margin-bottom: 16px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .stat-number {
-    font-size: 20px;
-  }
-
-  .stat-label {
-    font-size: 11px;
-  }
-
-  .section-label {
-    order: 0;
-  }
-
-  .hero-cidades {
-    order: 4;
+  .hero-content p.hero-cidades {
     font-size: 13px;
     line-height: 1.6;
-    margin-top: 16px;
+    margin-bottom: 24px;
   }
 
   .premium-card {
-    order: 5;
+    display: block;
+    margin-bottom: 24px;
   }
 
   .hero-image-bg {
-    display: none;
+    display: none !important;
   }
 
   .card-body {
     padding: 20px 16px;
   }
 }
-
-@media (max-width: 480px) {
-  .hero-stats {
-    grid-template-columns: 1fr;
-    gap: 16px;
-    text-align: center;
-  }
-  
-  .card-body {
-    padding: 24px 20px;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-}
-
 
 /* Botão WhatsApp no header — oculto no desktop, visível só no mobile */
 .header-whatsapp-btn {
